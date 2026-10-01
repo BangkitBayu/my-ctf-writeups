@@ -1,0 +1,3 @@
+Hexadecimal = sistem bilangan berbasis 16 dengan ketentuan sebagai berikut
+0-9 = representasi dari angka 0-9
+A-F = representasi dari angka 10-15
