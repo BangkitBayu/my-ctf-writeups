@@ -1,0 +1,2 @@
+ASCII = American Standard Code for Information Interchange
+Fungsi = digunakan untuk mengubah teks dan simbol menjadi angka yang dapat dipahami oleh komputer
