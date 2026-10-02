@@ -1,19 +1,14 @@
-# [WEB] - Cupid's Matchmakers
+# TryHackMe - Cupid's Matchmakers
 
-- **Target/Event:** PicoCTF / OWASP Juice Shop / Hack The Box
-- **Kategori:** Web Exploitation / API Security / SQLi / XSS
-- **Severity / Difficulty:** Easy / Medium / High
+### Category 
+Web Exploitation.
 
----
+### Description
+> My Dearest Hacker,
+Tired of soulless AI algorithms? At Cupid's Matchmaker, real humans read your personality survey and personally match you with compatible singles. Our dedicated matchmaking team reviews every submission to ensure you find true love this Valentine's Day! 💘No algorithms. No AI. Just genuine human connection.
 
-## 1. Executive Summary
-Penjelasan singkat 1-2 kalimat tentang celah keamanan dan dampaknya.
 
-## 2. Exploitation & PoC (Langkah Penyerangan)
-Langkah-langkah mereproduksi bug/mendapatkan flag beserta screenshot atau script Python.
+### Source
+[Cupid's Matchmakers Room](https://tryhackme.com/room/lafb2026e3).
 
-## 3. Source Code Analysis (Khusus RPL / White-box)
-Analisis baris kode penyebab kerentanan (jika source code tersedia/Juice Shop).
-
-## 4. Remediation & Fix
-Rekomendasi perbaikan kode (Secure Coding) agar celah tertutup.
+## Solution 
