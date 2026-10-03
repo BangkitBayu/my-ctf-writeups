@@ -1,0 +1,21 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: directory-1.txt
+START_TIME: Sat Oct  3 02:06:17 2026
+URL_BASE: http://10.49.169.199:8080/
+WORDLIST_FILES: /usr/share/seclists/Discovery/Web-Content/common.txt
+
+-----------------
+
+GENERATED WORDS: 4748
+
+---- Scanning URL: http://10.49.169.199:8080/ ----
++ http://10.49.169.199:8080/.git (CODE:200|SIZE:437)
++ http://10.49.169.199:8080/.git/HEAD (CODE:200|SIZE:21)
++ http://10.49.169.199:8080/.git/config (CODE:200|SIZE:92)
++ http://10.49.169.199:8080/.git/index (CODE:200|SIZE:289)
++ http://10.49.169.199:8080/.git/logs/ (CODE:200|SIZE:165)
