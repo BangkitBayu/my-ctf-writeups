@@ -1,4 +1,4 @@
-# CyberLab - heap-0
+# heap-0
 
 ### Category 
 PWN / Binary Exploitation.
