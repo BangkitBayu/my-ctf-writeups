@@ -143,7 +143,7 @@ int main(void) {
 }
 ```
 lalu, ketika program dijalankan maka akan muncul seperti ini:
-![preview](/img/preview.png)
+![preview](./img/preview.png)
 
 ## Exploitation
 Sebelum melakukan exploitasi, saya cek terlebih dahulu file dan juga securitynya, sebagai berikut
@@ -153,7 +153,7 @@ Sebelum melakukan exploitasi, saya cek terlebih dahulu file dan juga securitynya
 file ./chall
 ```
 outputnya
-![file](/img/file.png)
+![file](./img/file.png)
 
 #### Checksec
 ```bash
@@ -161,7 +161,7 @@ checksec --file=./chall
 ```
 
 outputnya
-![checksec](/img/checksec.png)
+![checksec](./img/checksec.png)
 - **Partial Relro**
 - **No Canary Found** 
 - **NX Enabled**
@@ -170,7 +170,7 @@ outputnya
 Dari semua informasi yang sudah saya kumpulkan maka kita perlu melakukan exploitasi agar input yang kita berikan mencapai stack pada "bico" sehingga memicu Segmentation Fault, kita nenggunakan teknik ini dinamakan HEAP Overflow
 
 1. Hitung offset bico dan pico
-![offset](/img/offset.png)
+![offset](./img/offset.png)
 
 pico perlu 32 bytes untuk mencapai ke bico, artinya jika input yang kita masukkan melebihi 32 bytes maka akan terjadi overflow dan memicu flagnya.
 
@@ -182,14 +182,14 @@ from pwn import *
 payload = cyclic(33)
 print(payload)
 ```
-![payload](/img/payload.png)
+![payload](./img/payload.png)
 
 3. Masukkan payloadnya ke opsi 2
-![exploit](/img/exploit.png)
+![exploit](./img/exploit.png)
 
 Ketika heap melebih batas bico yaitu 32 bytes dan bico ditimpa dengan payload yang kita masukkan tadi maka akan memicu check_win()
 
-![flag](/img/flag.png)
+![flag](./img/flag.png)
 
 
 
