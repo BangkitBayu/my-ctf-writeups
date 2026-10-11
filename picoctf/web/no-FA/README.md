@@ -32,7 +32,7 @@ Saya copy password adminnya dari database, lalu saya simpan kedalam admin_pw.txt
 
 ![crack](./img/crack.png)
 
-***NOTE**
+**NOTE**
 -----
 Jika sebelumnya belum mengekstrak rockyou, ekstrak terlebih dahulu dengan cara berikut:
 - cd /usr/share/wordlists atau copy aja pathnya
