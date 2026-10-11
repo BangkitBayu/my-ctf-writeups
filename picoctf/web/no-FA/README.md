@@ -27,17 +27,18 @@ Karena database bocor, ini bisa dimanfaatkan untuk melakukan bypass login menggu
 
 ![code](./img/code.png)
 
-1. Crack password admin
+### 1. Crack password admin
 Saya copy password adminnya dari database, lalu saya simpan kedalam admin_pw.txt dan lakukan cracking dengan John the Ripper sebagai berikut
 
 ![crack](./img/crack.png)
 
 ***NOTE**
+-----
 Jika sebelumnya belum mengekstrak rockyou, ekstrak terlebih dahulu dengan cara berikut:
 - cd /usr/share/wordlists atau copy aja pathnya
 - sudo gunzip rockyou.tar.gz
 
-2. Login dengan akun admin
+### 2. Login dengan akun admin
 ![login](./img/login.png)
 
 ![otp](./img/cookie.png)
@@ -49,7 +50,7 @@ Langkah selanjutnya ambil session cookie, karena kode OTP dikirim melalui cookie
 
 ![cookie](./img/cookie.png)
 
-3. Decode cookie nya
+### 3. Decode cookie nya
 Saya menggunakan decoder online sebagai berikut
 [flask-seesion-cookie-decoder](https://www.kirsle.net/wizards/flask-session.cgi).
 
@@ -58,7 +59,7 @@ Setelah didecode
 
 OTP secret sifatnya random, pastikan selalu menggunakan session cookie terbaru jika melakukan login ulang.
 
-4. Masukkan OTP Secretnya
+### 4. Masukkan OTP Secretnya
 ![otp-send](./img/otp-send.png)
 
 ![flag](./img/flag.png)
