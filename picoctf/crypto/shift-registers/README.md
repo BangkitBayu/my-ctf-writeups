@@ -7,7 +7,7 @@ Cryptography
 > I learned about lfsr today in school so i decided to implement it in my program. It must be safe right?
 
 ### Author
-Philip Tayler
+Philip Thayer
 
 ### Source
 [shift-registers](https://learn.cylabacademy.org/library/716?page=1&category=2&workspace=true&difficulty=2.
