@@ -65,3 +65,6 @@ io.interactive()
 
 Ketika program mengeksekusi shell
 ![flag](./img/flag.png)
+
+### References
+[https://shell-storm.org/shellcode/index.html](https://shell-storm.org/shellcode/index.html)
