@@ -11,8 +11,8 @@ PWN / Binary Exploitation.
 2. flag.txt - flag palsu untuk testing di lokal.
 
 ### Analysis
-** Binary Security **
-![checksec]('./img/checksec.png')
+*** Binary Security ***
+![checksec](./img/checksec.png)
 
 ** Key explanation **
 - No canary found - rentan buffer overflow
