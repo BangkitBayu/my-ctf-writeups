@@ -61,6 +61,6 @@ success(f'Flag --> {r.recvline_contains(b"HTB").strip().decode()}')
 ![flag](./img/flag.png)
 
 ### References
-[https://www.luseratech.com/memory-layout-visualizer](https://www.luseratech.com/memory-layout-visualizer)
-[https://www.geeksforgeeks.org/c/memory-layout-of-c-program/](https://www.geeksforgeeks.org/c/memory-layout-of-c-program/)
-[https://courses.grainger.illinois.edu/cs225/sp2022/resources/stack-heap/](https://courses.grainger.illinois.edu/cs225/sp2022/resources/stack-heap/)
+- [https://www.luseratech.com/memory-layout-visualizer](https://www.luseratech.com/memory-layout-visualizer)
+- [https://www.geeksforgeeks.org/c/memory-layout-of-c-program/](https://www.geeksforgeeks.org/c/memory-layout-of-c-program/)
+- [https://courses.grainger.illinois.edu/cs225/sp2022/resources/stack-heap/](https://courses.grainger.illinois.edu/cs225/sp2022/resources/stack-heap/)
