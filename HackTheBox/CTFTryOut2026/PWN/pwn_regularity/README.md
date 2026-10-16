@@ -11,16 +11,16 @@ PWN / Binary Exploitation.
 2. flag.txt - flag palsu untuk testing di lokal.
 
 ### Analysis
-*** Binary Security ***
+**Binary Security**
 ![checksec](./img/checksec.png)
 
-** Key explanation **
+**Key explanation**
 - No canary found - rentan buffer overflow
 - NX disabled - Shellcode dapat dieksekusi
 - No pie - Position address selalu tetap tidak berubah ketika program dijalankan
 
-** Disassembly **
-![disassembly]('./img/disassembly.png')
+**Disassembly**
+![disassembly](./img/disassembly.png)
 Diawal saya menganalisa terlalu cepat sehingga saya terjebak dalam perhitungan offset yang kurang tepat, hal itu dipengaruhi
 karena saya kurang eksplorasi pada fungsi read dimana sub menyimpan nilai 0x100 = 256 dari $rsp, namun
 program membaca hingga 0x110 = 272 dari $edx, hal ini bisa memicu overflow. Namun tidak perlu sampai 272 bytes
@@ -64,4 +64,4 @@ io.interactive()
 ```
 
 Ketika program mengeksekusi shell
-![flag]
+![flag](./img/flag.png)
