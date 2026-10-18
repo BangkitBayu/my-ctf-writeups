@@ -70,4 +70,4 @@ Holaa, kita dapatkan flagnya
 ![flag](./img/flag.png)
 
 ### References
-[https://shell-storm.org/shellcode/index.html](https://shell-storm.org/shellcode/index.html)
+https://portswigger.net/web-security/cross-site-scripting](https://portswigger.net/web-security/cross-site-scripting)
