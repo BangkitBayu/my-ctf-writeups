@@ -67,6 +67,7 @@ http://154.57.164.77:40546/?format=';cat /flag'
 ```
 
 Holaa, kita dapatkan flagnya
+![flag](./img/flag.png)
 
 ### References
 https://portswigger.net/web-security/cross-site-scripting](https://portswigger.net/web-security/cross-site-scripting)
