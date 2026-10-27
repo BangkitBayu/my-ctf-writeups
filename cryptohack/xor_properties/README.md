@@ -18,7 +18,7 @@ Let's put this into practice! Below is a series of outputs where three random ke
 - FLAG ^ KEY1 ^ KEY3 ^ KEY2 = 04ee9855208a2cd59091d04767ae47963170d1660df7f56f5faf 
 
 ### Source
-[xor_properties](https://cryptohack.org/courses/intro/xor1/.
+[xor_properties](https://cryptohack.org/courses/intro/xor1/).
 
 ### Solution
 Saya selesaikan dengan solver berikut
