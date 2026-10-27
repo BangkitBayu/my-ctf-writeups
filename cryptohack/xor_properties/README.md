@@ -49,6 +49,9 @@ flag = xor(bytes.fromhex(flag_key1_2_3), key1_2_3)
 
 print(f"Flag: {flag}")
 ```
+
+![flag](./img/flag.png)
+
 ### References
 - [https://www.geeksforgeeks.org/python/get-the-logical-xor-of-two-variables-in-python/](https://www.geeksforgeeks.org/python/get-the-logical-xor-of-two-variables-in-python/)
 - [https://en.wikipedia.org/wiki/Exclusive_or](https://en.wikipedia.org/wiki/Exclusive_or)
