@@ -1,4 +1,4 @@
-# My First Password Crackme
+# My First Crackme
 
 ### Category 
 Reverse Engineering.
@@ -21,11 +21,7 @@ my-first-crackme.exe: PE32+ executable for MS Windows 6.00 (console), x86-64, 2 
 Program tersebut merupakan executable 32 bit yang berjalan di windows console. Karena ini adalah chall Reverse tingkat dasar , harusnya tidak seribet itu untuk melakukan exploit, berdasarkan deskripsi soal kita hanya disuruh untuk mencari secret password nya saja.
 
 ### Exploitation
-1. Ekstract filenya
-Sebelum saya memulai exploit saya akan terlebih dahulu ekstrak filenya
-
-2. Strings 
-Saya akan menggunakan perintah 'strings' untuk melihat output program tanpa harus menjalankan programnya, dan setelah itu saya rasa saya telah menemukan secret password yang dimaksud dan menyelesaikan tantangannya.
+Sebelum saya memulai exploit saya akan terlebih dahulu ekstrak filenya, lalu saya akan menggunakan perintah 'strings' untuk melihat output program tanpa harus menjalankan programnya, dan setelah itu saya rasa saya telah menemukan secret password yang dimaksud dan menyelesaikan tantangannya.
 
 ![flag](./img/flag.png)
 
