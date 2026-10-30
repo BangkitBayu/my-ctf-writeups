@@ -4,73 +4,69 @@
 Reverse Engineering.
 
 ### Overview
-![overview]("./img/overview.png")
+![overview](./img/overview.png)
 
 ### Source
 [flag_hunter](https://learn.cylabacademy.org/library/472?page=1&category=3&workspace=true)
 
-Diberikan chall.py sebagai berikut:
+### Analysis
+Ketika program dijalankan ia akan menampilkan lirik yang tampil secara berurutan, lalu akan muncul input dengan inisal Crowd. Namun input tersebut tidak divalidasi sehingga langsung dilempar kedalam program untuk dieksekusi, seperti berikut
+
 ```python
-from Crypto.Util.number import bytes_to_long, long_to_bytes
-from Crypto.Random import get_random_bytes
+ # Find startLabel, refrain and refrain return
+  for i in range(0, len(song_lines)):
+    if song_lines[i] == startLabel:
+      start = i + 1
+    elif song_lines[i] == '[REFRAIN]':
+      refrain = i + 1
+    elif song_lines[i] == 'RETURN':
+      refrain_return = i
 
-key = bytes_to_long(get_random_bytes(126))
-
-def steplfsr(lfsr):
-b7 = (lfsr >> 7) & 1
-b5 = (lfsr >> 5) & 1
-b4 = (lfsr >> 4) & 1
-b3 = (lfsr >> 3) & 1
-
-feedback = b7 ^ b5 ^ b4 ^ b3
-lfsr = (feedback << 7) | (lfsr >> 1)
-return lfsr
-
-def encrypt_lfsr(pt_bytes):
-output = bytearray()
-lfsr = key & 0xFF
-for p in pt_bytes:
-	lfsr = steplfsr(lfsr)
-	ks = lfsr
-	output.append(p ^ ks)
-	return bytes_to_long(bytes(output))
-	
-	pt = b"[redacted]"
-	ct = encrypt_lfsr(pt)
-	
-	print(long_to_bytes(ct).hex())
-	
-```
-## Exploitation
-Saya selesaikan dengan solver berikut:
-```python
-ct = bytes.fromhex('30cbb50e507774fdafd01e0bfdbc38d5eadf92991cdd347064e37444e517d661cea9')
-
-def steplfsr(lfsr):
-b7 = (lfsr >> 7) & 1
-b5 = (lfsr >> 5) & 1
-b4 = (lfsr >> 4) & 1
-b3 = (lfsr >> 3) & 1
-
-feedback = b7 ^ b5 ^ b4 ^ b3
-lfsr = (feedback << 7) | (lfsr >> 1)
-return lfsr
-
-def decrypt_with_seed(seed):
-lfsr = seed
-out = bytearray()
-for c in ct:
-	lfsr = steplfsr(lfsr)
-	out.append(c ^ lfsr)
-	return bytes(out)
-	
-	for seed in range(256):
-		pt = decrypt_with_seed(seed)
-		if pt.startswith(b'academy{'):
-			print(pt.decode())
-			break
-			
+while not finished and line_count < MAX_LINES:
+    line_count += 1
+    for line in song_lines[lip].split(';'):
+      if line == '' and song_lines[lip] != '':
+        continue
+      if line == 'REFRAIN':
+        song_lines[refrain_return] = 'RETURN ' + str(lip + 1)
+        lip = refrain
+      elif re.match(r"CROWD.*", line):
+        crowd = input('Crowd: ')
+        song_lines[lip] = 'Crowd: ' + crowd
+        lip += 1
+      elif re.match(r"RETURN [0-9]+", line):
+        lip = int(line.split()[1])
+      elif line == 'END':
+        finished = True
+      else:
+        print(line, flush=True)
+        time.sleep(0.5)
+        lip += 1
 ```
 
-## Learning Resources
-[https://en.wikipedia.org/wiki/Linear-feedback_shift_register](https://en.wikipedia.org/wiki/Linear-feedback_shift_register)
+Dari Source Code berikut raw input langsung diterima oleh program dan dieksekusi, lalu ketika ada tanda ';' diantara input yang kita masukkan, hal ini akan memengaruhi flow dari program yang sedang berjalan, lalu ketika program ini pertama kali dijalankan dia melompati lirik yang mengandung flag dan langsung lompat ke lirik yang memiliki label seperti [REFRAIN], sedangkan lirik yang mengandung flag tidak memiliki label sama sekali seperti berikut:
+
+```python
+secret_intro = \
+'''Pico warriors rising, puzzles laid bare,
+Solving each challenge with precision and flair.
+With unity and skill, flags we deliver,
+The ether’s ours to conquer, '''\
++ flag + '\n'
+```
+
+Dari analisa tersebut program rentan terhadap serangan yang berhubungan langsung dengan subroutine call, yaitu ketika suatu program memanggil fungsi dan ketika fungsi tersebut selesai dijalankan, memaksa RETURN ketujuan yang bukan tempat awal pemanggilan fungsi,sehingga kita bisa memanfaatkan hal ini untuk memaksa program mengeksekusi ke tempat yang kita inginkan, contohnya ke lirik pertama yang tidak pernah dicetak oleh program.  
+
+### Exploitation
+Susun payloadnya:
+
+```bash
+TES;RETURN 0 # perintah return digunakan untuk memberi perintah pada program untuk mengembalikan program
+```
+Ketika program meminta input 'Crowd: ', masukkan payload tersebut ke dalam input 
+
+Lalu BOOM program mencetak lirik yang mengandung flag
+![flag](./img/flag.png)
+
+### References
+[https://youtu.be/xt2Q9n1Udb4?si=86VqJxeKIsyXPrKL](https://youtu.be/xt2Q9n1Udb4?si=86VqJxeKIsyXPrKL)
