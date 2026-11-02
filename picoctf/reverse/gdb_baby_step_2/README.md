@@ -52,7 +52,7 @@ Dari source code tersebut fungsi main menjalankan program looping, dengan ketent
 local_c = 0x1e0da => 123098
 ```
 
-looping akan terus berjalan dan melakukan increment sampai var local_10 itu lebih dari 0x25f atau 607. Dimana jika kondisi looping bernilai TRUE maka var local_c akan ditambahkan dengan hasil operasi pada
+looping akan terus berjalan dan melakukan increment sampai var local_10 itu sama dengan 0x25f atau 607. Dimana jika kondisi looping bernilai TRUE maka var local_c akan ditambahkan dengan hasil operasi pada
 local_c itu sendiri ditambah dengan hasil dari increment local_10, ketika looping sudah melewati atau sama dengan 607, looping akan berhenti dan return nilai final dari local_c.
 
 ### Exploitation
