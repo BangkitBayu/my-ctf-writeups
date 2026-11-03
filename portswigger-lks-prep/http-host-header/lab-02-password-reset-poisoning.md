@@ -10,15 +10,13 @@ You can log in to your own account using the following credentials: wiener:peter
 | **Category** | Host Header Injection |
 | **Difficulty Level** |  Practitioner |
 | **Lab URL** | [PortSwigger Lab Link](https://portswigger.net/web-security/authentication/other-mechanisms/lab-password-reset-poisoning-via-middleware) |
-| **Status** | In Progress |
-| **Date Completed** | YYYY-MM-YY |
+| **Status** | Solved |
+| **Date Completed** | 2026-11-03 |
 
 ## Analysis
 Sebelumnya, kurang lebih cara kerja middlware seperti ini:
 
-```
 ![how-middlware-work](./img/how-middleware-work.png)
-```
 
 Lalu apa hubungannya dengan lab ini? Saya mencoba untuk memodifikasi Host nya dan mengirimkan request reset password ke server dengan Host exploit yang saya dapatkan yaitu
 
