@@ -77,6 +77,7 @@ Finally solved
 - Menggunakan burpsuite, melakukan repeater dan memodifikasi Host Header
 - Membaca, menganalisis dan memahami log server
 - Memahami bagaimana cara kerja reset token dalam permintaan reset password dan celahnya
+- Memahami bagaimana cara kerja Request dan Response antara client dan server
 
 ## References
 - [https://portswigger.net/web-security/host-header#what-is-the-http-host-header](https://portswigger.net/web-security/host-header#what-is-the-http-host-header)
