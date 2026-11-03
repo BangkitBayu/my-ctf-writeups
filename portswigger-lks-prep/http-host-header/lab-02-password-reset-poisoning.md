@@ -1,7 +1,6 @@
 # Password Reset Poisoning Via Middleware
 
-> **Lab Description:**  This lab is vulnerable to password reset poisoning. The user carlos will carelessly click on any links in emails that he receives. To solve the lab, log in to Carlos's account.
-You can log in to your own account using the following credentials: wiener:peter. Any emails sent to this account can be read via the email client on the exploit server.
+> **Lab Description:**  This lab is vulnerable to password reset poisoning. The user carlos will carelessly click on any links in emails that he receives. To solve the lab, log in to Carlos's account. You can log in to your own account using the following credentials: wiener:peter. Any emails sent to this account can be read via the email client on the exploit server. 
 
 ## Lab Overview
 
@@ -39,7 +38,7 @@ Itu artinya aplikasi mempunyai daftar konfigurasi alamat host apa saja yang dike
 response 404. Namun aplikasi gagal untuk membatasi host forwader, sehingga meskipun request masuk melalui alamat host yang sama akan tetapi host forwader mengenalinya dan tidak membatasinya maka alamat host forwarder yang 
 berbeda tetap akan bocor dan diproses oleh server
 
-![1](./img/lab-02-reset-password-poisoning-1.png)
+![1](./img/lab-02-password-reset-poisoning-1.png)
 
 Sehingga request reset password tetap masuk dan diproses oleh server
 
@@ -63,15 +62,15 @@ Saya mendapatkan reset token berikut
 
 3. Pergi dan lakukan reset password dengan username carlos beserta token yang sudah didapatkan
 
-![2](./img/lab-02-reset-password-poisoning-2.png)
+![2](./img/lab-02-password-reset-poisoning-2.png)
 
 4. Login menggunakan akun carlos dan password baru
 
-![3](./img/lab-02-reset-password-poisoning-3.png)
+![3](./img/lab-02-password-reset-poisoning-3.png)
 
 Lalu kita berhasil masuk menggunakan akun carlos
 
-![final](./img/lab-02-reset-password-poisoning-final.png)
+![final](./img/lab-02-password-reset-poisoning-final.png)
 
 ## New Knowledge
 - Menggunakan burpsuite, melakukan repeater dan Host Forwarded
