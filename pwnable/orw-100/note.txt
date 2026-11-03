@@ -1,0 +1,1 @@
+Syscall adalah mekanisme yang digunakan aplikasi untuk meminta layanan kepada kernel sistem operasi. Syscall menjadi jembatan antara user space dan kernel space agar aplikasi dapat mengakses sumber daya sistem secara terkontrol, seperti melakukan operasi file open(), read(), dan write().

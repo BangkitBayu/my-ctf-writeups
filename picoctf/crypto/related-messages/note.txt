@@ -1,0 +1,4 @@
+Parameter RSA
+
+e = kunci publik
+0x11 = 17

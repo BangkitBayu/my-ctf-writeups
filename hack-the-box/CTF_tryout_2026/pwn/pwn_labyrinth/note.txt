@@ -1,0 +1,14 @@
+local_18 = 16
+
+-- dikurangi dengan pengambilan fgets -5 -------
+local_18 = 11
+
+masukkan 69 / 069, maka muncul
+
+You are heading to open the door but you suddenly see something on the wall:
+
+"Fly like a bird and be free!"
+
+Would you like to change the door you chose?
+
+offset buffer awal ke ret = 56
