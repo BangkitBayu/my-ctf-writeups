@@ -14,7 +14,7 @@
 
 ## Analysis
 
-Diberikan sebuah halaman web seperti ini lengkap dengan display product, detail, cart dan juga autentikasi.
+Diberikan sebuah halaman web e-commerce sederhana seperti berikut:
 
 ![1](./lab-01-img/Screenshot_2026-11-05_21-40-52.png)
 
