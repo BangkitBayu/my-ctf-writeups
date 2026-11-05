@@ -9,7 +9,7 @@
 | **Category**         | Business logic error                                                                                                                      |
 | **Difficulty Level** | Apprentice                                                                                                                                |
 | **Lab URL**          | [PortSwigger Lab Link](https://portswigger.net/web-security/logic-flaws/examples/lab-logic-flaws-excessive-trust-in-client-side-controls) |
-| **Status**           | In progress                                                                                                                               |
+| **Status**           | Solved                                                                                                                               |
 | **Date Completed**   | 2026-11-05                                                                                                                                |
 
 ## Analysis
