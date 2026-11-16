@@ -7,7 +7,7 @@
 | Property             | Detail                                                                                                                                        |
 | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Category**         | SameSite Lax bypass via method override                                                                                                       |
-| **Difficulty Level** | Apprentice                                                                                                                                    |
+| **Difficulty Level** | Practitioner                                                                                                                                    |
 | **Lab URL**          | [PortSwigger Lab Link](https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions/lab-samesite-lax-bypass-via-method-override) |
 | **Status**           | Solved                                                                                                                                   |
 | **Date Completed**   | 2026-11-16                                                                                                                                    |
