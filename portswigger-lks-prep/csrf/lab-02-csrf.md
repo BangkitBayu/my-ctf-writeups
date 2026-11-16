@@ -9,7 +9,7 @@
 | **Category**         | SameSite Lax bypass via method override                                                                                                       |
 | **Difficulty Level** | Apprentice                                                                                                                                    |
 | **Lab URL**          | [PortSwigger Lab Link](https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions/lab-samesite-lax-bypass-via-method-override) |
-| **Status**           | In progress                                                                                                                                   |
+| **Status**           | Solved                                                                                                                                   |
 | **Date Completed**   | 2026-11-16                                                                                                                                    |
 
 ## Analysis
