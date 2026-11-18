@@ -47,11 +47,13 @@ functionExpressionParser@src/mongo/scripting/mozjs/mongohelpers.js:46:25
 ```
 this.category == 'input' && this.released == 1
 ```
+sehingga memicu kondisi true jika `' || '1'=='1`
+
 **Kedua**, teruskan request ke browser
 
+![2](./lab-01-img/Screenshot_2026-11-18_09-57-19.png)
 
-
-sehingga memicu kondisi true jika `' || '1'=='1`
+![3](./lab-01-img/Screenshot_2026-11-18_10-48-37.png)
 
 ### Final Exploit
 
