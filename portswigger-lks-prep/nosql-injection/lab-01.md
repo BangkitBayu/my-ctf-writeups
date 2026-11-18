@@ -14,6 +14,22 @@
 
 ## Analysis
 
+Diberikan web sebagai berikut:
+
+![1](./lab-01-img/Screenshot_2026-11-18_08-39-55.png)
+
+Objektif dalam lab ini yaitu melakukan `No SQL Injection` terhadap fitur filter kategori produk pada web e-commerce untuk menampilkan produk yang belum rilis.
+
+**Pertama**, saya mengamati bagaimana cara web load semua produk. Saya ambil sample pada kategori `Clothing,shoes and accessories`
+
+```text
+GET /filter?category=Clothing%2c+shoes+and+accessories
+```
+
+Response dari server adalah halaman HTML beserta produk yang memenuhi kategori tersebut.
+
+**Kedua**, Uji coba query yang memicu `No SQL Injection`
+
 ## Exploitation
 
 ## New Knowledge
