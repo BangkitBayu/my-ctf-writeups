@@ -16,6 +16,8 @@
 
 Diberikan web sebagai berikut:
 
+![1](./lab-01-imgs/1.png)
+
 Objektif dari lab ini adalah kita diminta untuk melakukan `SQL Injection` terhadap fitur filter kategori produk pada web e-commerce untuk menampilkan 1 atau lebih produk kategori yang belum rilis.
 
 **Pertama**, saya Capture request ketika produk dimuat. Produk dimuat dengan cara memanggil endpoint `GET /filter?category=Accessories`
@@ -34,7 +36,7 @@ Pertama, saya susun payload yang memicu kondisi true pada injection dan tidak me
 
 Kedua, saya kirim request beserta payload ke browser
 
-
+![2](./lab-01-imgs/2.png)
 
 ### Final Exploit
 
