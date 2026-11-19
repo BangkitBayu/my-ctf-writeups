@@ -8,9 +8,9 @@
 | :------------------- | :---------------------------------------------------------------------------------------------------------------------- |
 | **Category**         | Race conditions                                                                                                         |
 | **Difficulty Level** | Apprentice                                                                                                              |
-| **Lab URL**          | [PortSwigger Lab Link](https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-unverified-signature) |
-| **Status**           | In progress                                                                                                             |
-| **Date Completed**   |                                                                                                                         |
+| **Lab URL**          | [PortSwigger Lab Link](https://portswigger.net/web-security/race-conditions/lab-race-conditions-limit-overrun) |
+| **Status**           | Solved                                                                                                             |
+| **Date Completed**   |      2026-11-19                                                                                                                   |
 
 ## Analysis
 
