@@ -9,8 +9,8 @@
 | **Category**         | JWT Attacks                                                                                                             |
 | **Difficulty Level** | Apprentice                                                                                                              |
 | **Lab URL**          | [PortSwigger Lab Link](https://portswigger.net/web-security/jwt/lab-jwt-authentication-bypass-via-unverified-signature) |
-| **Status**           | In progress                                                                                                             |
-| **Date Completed**   |                                                                                                                         |
+| **Status**           | Solved                                                                                                             |
+| **Date Completed**   |                                      2026-11-19                                                                                   |
 
 ## Analysis
 
