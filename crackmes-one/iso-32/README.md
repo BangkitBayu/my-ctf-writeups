@@ -1,4 +1,4 @@
-# math\_\_0x0's iso_32
+# iso_32
 
 > **Description**: a 32bit elf crackme try to solve it :)
 

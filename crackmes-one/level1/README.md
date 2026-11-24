@@ -1,4 +1,4 @@
-# sudo0x18's Level1
+# Level1
 
 ## Overview
 
