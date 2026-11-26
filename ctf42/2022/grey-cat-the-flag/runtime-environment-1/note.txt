@@ -1,0 +1,10 @@
+for char in alphabet:
+  if alphabet.count(char) > 1:
+    print(
+    f"Karakter '{char}' muncul "
+    f"{alphabet.count(char)} kali"
+)
+
+print(len(alphabet))
+print(len(set(alphabet)))
+print(alphabet[10])
