@@ -8,7 +8,9 @@
 | -------------- | --------------------------------------------------------------- |
 | Organizer      | VishwaCTF                                                       |
 | Year           | 2022                                                            |
-| Difficulty     | Easy 304/1000                                                          |
+| Category       | `Reverse`                                                       |
+| Difficulty     | Easy 304/1000                                                   |
+| Techniques     | `#anti-debugging` `#reversing`                                  |
 | Challenge link | [Click me](https://ctf42.online/ctfs/vishwactf/2022/confusion/) |
 
 ## 1. Initial Reconnaissance
@@ -410,7 +412,6 @@ Keys will be generate like this in every loop:
  *puVar4 = ~(*puVar4 - (ushort)uVar2) ^ (ushort)uVar2;
 ```
 
-
 and xor again with username length, username value stored in `local_50` when intialize `0` in earlier
 
 ```c++
@@ -418,7 +419,6 @@ and xor again with username length, username value stored in `local_50` when int
     uVar3 = uVar2;
   }
 ```
-
 
 ## 3. Solution
 

@@ -7,9 +7,10 @@
 | Property       | Detail                                                                         |
 | -------------- | ------------------------------------------------------------------------------ |
 | Organizer      | GreyCatTheFlag                                                                 |
-| Year           | 2022                                                                           | 
+| Year           | 2022                                                                           |
+| Category       | `Reverse`                                                                      |
 | Difficulty     | Easy 299/1000                                                                  |
-| Techniques           | `#go-reversing` `#custom-base6`                                                      |
+| Techniques     | `#go-reversing` `#custom-base6`                                                |
 | Challenge link | [Click me](https://ctf42.online/ctfs/greycattheflag/2022/runtimeenvironment1/) |
 
 ## 1. Initial Reconnaissance
@@ -53,11 +54,12 @@ No RELRO        No canary found   NX enabled    No PIE          No RPATH   No RU
 | NX disabled | No Protection from shellcode |
 | No PIE | Static base address when program running |
 
-## 2. Static Analysis 
+## 2. Static Analysis
 
 I used ghidra to get pseudocode
 
 ### 2.1 main.main - entry program
+
 ```c++
 /* WARNING: Unknown calling convention -- yet parameter storage is locked */
 
@@ -97,7 +99,7 @@ void main.main(void)
   int *local_30;
   undefined *local_28 [2];
   undefined *local_18 [2];
-  
+
                     /* Unresolved local var: string * &src@[???]
                        Unresolved local var: []uint8 buf@[???] */
   while (local_28 <= *(undefined ***)(*(int *)(in_FS_OFFSET + -8) + 0x10)) {
@@ -174,7 +176,7 @@ void main.Encode([]uint8 dst,[]uint8 src,[]uint8 ~r2)
   int iVar4;
   uint uVar5;
   uint8 local_48 [64];
-  
+
                     /* Unresolved local var: int di@[???]
                        Unresolved local var: int si@[???]
                        Unresolved local var: int n@[???]
@@ -351,7 +353,7 @@ I set breakpint in `*main.main`, program requested input when
 0x49988f <main.main+47>     lea    rax, [rip + 0x1212a]            RAX => 0x4ab9c0 (type.*+72128) ◂— 0x10
    0x499896 <main.main+54>     mov    qword ptr [rsp], rax            [0xc0000c4eb0] <= 0x4ab9c0 (type.*+72128) ◂— 0x10
    0x49989a <main.main+58>     call   runtime[newobject]          <runtime[newobject]>
- 
+
    0x49989f <main.main+63>     mov    rax, qword ptr [rsp + 8]
    0x4998a4 <main.main+68>     mov    qword ptr [rsp + 0x78], rax
  ► 0x4998a9 <main.main+73>     xorps  xmm0, xmm0
@@ -384,6 +386,7 @@ After that, `tes` encoded by base64 custom encoding
 ```
 
 ## 4. Solution
+
 I build solver script to completed this challenge, why i use 5 times decoded? because i tried to once decoded but don't get plaintext
 
 ```python
@@ -435,11 +438,10 @@ def decoded(c):
 
 current = c
 
-for i in range(1, 5): 
+for i in range(1, 5):
   current = decoded(current).decode("ascii")
-  
+
   print(f"[{i}/5]: {current}")
 ```
 
 **Flag**: grey{B4s3d_G0Ph3r_r333333}
-
